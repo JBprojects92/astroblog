@@ -1,20 +1,48 @@
 ---
+import moment from "moment";
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const pageTitle = "About Me";
+
+const identity = {
+  name: "Julian B",
+  country: "Germany",
+  description:
+    "I am a software developer in training who is interested in web development, AI and machine learning.",
+  image: {
+    url: "https://docs.astro.build/assets/rays.webp",
+    alt: "The Astro logo on a dark background with rainbow rays.",
+  },
+  hobbies: ["Gaming", "Hiking/Walking"],
+};
+
+const skills = [
+  "JavaScript / Typescript",
+  "Python",
+  "HTML / CSS",
+  "Astro",
+  "React",
+  "C#",
+];
+
+const lastUpdated = new Date("June 27, 2025 10:30:00 GMT+0200");
+const timeSinceLastUpdate = moment(lastUpdated, "YYYYMMDD").fromNow();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/about/">About</a>
-
-    <h1>My Astro About Page</h1>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <p>Some facts about myself:</p>
+  <ul>
+    <li>My name is {identity.name}.</li>
+    <li>I am from {identity.country}.</li>
+    <li>{identity.description}</li>
+    <li>
+      My hobbies include: {identity.hobbies[0]} and {identity.hobbies[1]}
+    </li>
+  </ul>
+  <p>My skills include:</p>
+  <ul>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
+  <p><i>Last updated: {timeSinceLastUpdate}</i></p>
+</BaseLayout>

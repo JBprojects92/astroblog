@@ -1,0 +1,30 @@
+---
+import Socials from "../components/Socials.astro";
+const github = {
+  platform: "Github",
+  url: "https://github.com/",
+  user: "JBprojects92",
+};
+---
+
+<footer style="border-top: 1px solid #2b3846;">
+  <div
+    style="display: flex; justify-content: center; align-items: center; margin-top: 40px; align-items: center; gap: 10rem;"
+  >
+    <span
+      >Made with <a href="https://astro.build">Astro</a>by Astro Contributors</span
+    >
+    <span
+      ><Socials
+        platform="Github"
+        username="JBprojects92"
+        url="https://github.com/"
+      /></span
+    >
+    <span
+      ><small>
+        © {new Date().getFullYear()} - All rights reserved.
+      </small></span
+    >
+  </div>
+</footer>

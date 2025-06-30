@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/PostLayout.astro
 title: My Second Blog Post
 author: Julian B.
 description: "After learning some Astro, I couldn't stop!"
